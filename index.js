@@ -1,13 +1,7 @@
 var child_process = require('child_process');
 
 exports.dockerComposeUp = function(dir, options, success, error){
-	var command = 'docker-compose up';
-
-	if(options){
-		for(option in options){
-			command += ' ' + options[option];
-		}
-	}
+	var command = 'docker-compose up ' + options;
 
 	execCommand(command, success, error, {cwd: dir});
 }
